@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+.btn-primary {
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+.icon {
+    font-size: 100px;
+    color: #007bff;
+    margin-bottom: 20px;
+}

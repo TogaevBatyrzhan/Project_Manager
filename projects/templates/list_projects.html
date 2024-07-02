@@ -1,0 +1,31 @@
+{% extends 'main/menu.html' %}
+{% load static %}
+
+{% block title %}TaskMaster{% endblock %}
+
+{% block content %}
+    <div class="project-container">
+        <h2 class="project-heading">My Projects</h2>
+        <ul class="project-list">
+            {% for project in projects %}
+            <li class="project-item">
+                <div class="project-info">
+                    <div class="project-title">
+                        <a href="{% url 'details_project' project.id %}" class="project-link">{{ project.title }}</a>
+                    </div>
+                    <div class="project-details">
+                        <span class="project-lead">Team Lead: {{ project.team_lead }}</span>
+                        <span class="project-created">Created at: {{ project.created_at|date:"Y-m-d H:i:s" }}</span>
+                        {% if project.updated_at %}
+                        <span class="project-updated">Updated at: {{ project.updated_at|date:"Y-m-d H:i:s" }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'create_project' %}" class="create-link">Create New Project</a>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'list_project.css' %}">
+{% endblock %}

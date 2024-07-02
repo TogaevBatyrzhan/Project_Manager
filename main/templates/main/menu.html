@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+
+</head>
+<body>
+    {% block header %}
+    <header>
+        <nav>
+            <div class="left-menu">
+                <div class="icon-toggle" id="icon-toggle">
+                    <i class="fas fa-sun" id="icon"></i>
+                    <i class="fas fa-moon" id="icon-alternate" style="display:none;"></i>
+                </div>
+            </div>
+            <div class="center-menu">
+                <ul class="nav-menu">
+                    <li><a href="/">Привилегия</a></li>
+                    <li class="search-container">
+                        <input type="text" id="search-box" placeholder="Поиск игр...">
+                        <button id="search-button"><i class="fas fa-search"></i></button>
+                    </li>
+                    <li><a href="/projects/">Список Проектов</a></li>
+                    <li class="profile-menu">
+                        <a href="/profile/">Профиль</a>
+                        <ul class="dropdown">
+                            <li><a href="/profile">Мой профиль</a></li>
+                            <li><a href="/profile/edit">Редактировать профиль</a></li>
+                            <li><a href="/logout/">Выход <i class="fas fa-sign-out-alt"></i></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-menu">
+                <div class="balance">
+                    Баланс: <span> {{ user.balance }} $</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    {% endblock %}
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/static/js/menu.js"></script>
+</body>
+</html>

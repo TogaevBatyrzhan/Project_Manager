@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали задачи: {{ task.title }}</title>
+</head>
+<body>
+    <h2>Задача: {{ task.title }}</h2>
+    <p>Описание: {{ task.description }}</p>
+        
+        {% if task.status == 'new' %}
+            <form method="post" action="{% url 'change_task_status' project.id task.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Начать</button>
+            </form>
+        {% endif %}
+        
+        {% if task.status == 'in_progress' %}
+            <form method="post" action="{% url 'change_task_status' project.id task.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Закончить</button>
+            </form>
+        {% endif %}
+    
+        {% if task.status == 'on_verification' %}
+            <form method="post" action="{% url 'change_task_status' project.id task.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Проверено</button>
+            </form>
+        {% endif %}
+
+    {% if user == project.creator or user == task.team_lead %}
+        <a href="{% url 'edit_task' project.id task.id %}" class="btn">Редактировать задачу</a>
+    {% endif %}
+    {% if user == project.creator or user == task.team_lead %}
+    <a href="{% url 'delete_task' project.id task.id %}" class="btn">Удалить задачу</a>
+    {% endif %}
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'details_task.css' %}">
+</body>
+</html>

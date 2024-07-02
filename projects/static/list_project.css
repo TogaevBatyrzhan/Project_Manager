@@ -1,0 +1,56 @@
+.project-container {
+    margin: 20px;
+}
+
+.project-heading {
+    color: #333;
+    text-align: center;
+}
+
+.project-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.project-details {
+    font-size: 14px;
+    color: #666;
+}
+
+.create-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}

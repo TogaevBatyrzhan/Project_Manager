@@ -1,0 +1,36 @@
+{% extends 'main/menu.html' %}
+{% load static %}
+
+{% block title %}TaskMaster{% endblock %}
+
+{% block content %}
+<body>
+    <div class="profile-container">
+        <h2>User Profile</h2>
+        <div class="profile-details">
+            <div class="profile-item">
+                <span class="label">Name:</span>
+                <span class="value">{{ user.first_name }}</span>
+            </div>
+            <div class="profile-item">
+                <span class="label">Username:</span>
+                <span class="value">{{ user.username }}</span>
+            </div>
+            <div class="profile-item">
+                <span class="label">Email:</span>
+                <span class="value">{{ user.email }}</span>
+            </div>
+            <div class="profile-item">
+                <span class="label">Profession:</span>
+                <span class="value">{{ user.position.title }}</span>
+            </div>
+            <div class="profile-item">
+                <span class="label">Subscription Status:</span>
+                <span class="value">{{ user.subscription }}</span>
+            </div>
+        </div>
+    </div>
+
+<link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+</body>
+{% endblock %}
